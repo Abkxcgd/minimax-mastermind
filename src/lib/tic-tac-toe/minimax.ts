@@ -92,7 +92,7 @@ export function findBestMove(board: Board): AiDecision {
     };
   }
 
-  let bestMove = moves[0];
+  let bestMove = moves[0] ?? -1;
   let bestScore = -Infinity;
   let nodesExplored = 0;
 
@@ -128,7 +128,7 @@ export function findBestMove(board: Board): AiDecision {
 
 function randomMove(board: Board): AiDecision {
   const moves = availableMoves(board);
-  const move = moves[Math.floor(Math.random() * moves.length)];
+  const move = moves[Math.floor(Math.random() * moves.length)] ?? -1;
   return {
     move,
     movesConsidered: moves.length,
